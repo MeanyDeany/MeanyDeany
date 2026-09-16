@@ -1,30 +1,36 @@
 # Woosub Shin
 
-**Probabilistic Market Research · Systematic Trading · Financial Econometrics**
+**Probabilistic Market Research · Market Microstructure · Systematic Trading**
 
 I build quantitative research systems that turn market hypotheses into reproducible evidence.
 
-My current work focuses on moving beyond repeated strategy search toward a **probabilistic market-belief framework**: estimating whether the market will move, the conditional direction of that move, its magnitude, and ultimately the full return distribution before any trading decision is considered.
+My current work is moving below repeated bar-level strategy search into **event-level Bitcoin market microstructure and high-frequency research**. The focus is not simply to make forecasts faster, but to study whether observable order-flow and liquidity states change fill probability, post-fill markouts, adverse selection, and ultimately cost-adjusted passive-execution payoff.
+
+Prior probabilistic, volatility, and bar-based studies remain retained as frozen evidence rather than being rewritten around the new direction.
 
 ## Current Research Direction
 
 ```text
-Market data
+5m / 1m market context and retained evidence
     ↓
-P(MOVE)
+Event-level trades, quotes and order-book updates
     ↓
-P(Direction | MOVE)
+Local order-book reconstruction
     ↓
-Conditional magnitude distribution
+OFI · microprice · spread · depth · trade imbalance
     ↓
-Full signed return distribution
+Fill probability + adverse-selection analysis
     ↓
-Cost-aware expected utility        ← next research gate
+1s / 5s / 10s / 30s / 60s markouts
     ↓
-Strategy / asset allocation        ← long-term direction
+Cost-aware passive-execution payoff
+    ↓
+Strategy / execution consideration only after validation
 ```
 
-The key separation is deliberate:
+The engineering track is moving toward a **C++ event-driven market-data and deterministic replay core**, with Python retained for statistical analysis, experiment design, payoff studies, and validation.
+
+The key separation remains deliberate:
 
 ```text
 predictive evidence
@@ -62,7 +68,7 @@ Just as importantly, some hypotheses did **not** survive:
 - A separate direction-specific magnitude model did not add robust value over the pooled-magnitude structure.
 - The derived conditional mean did not establish lower MSE than a zero-return forecast.
 
-Those nulls are retained rather than tuned away. The next research gate is **cost-aware distributional utility**, not live trading.
+Those nulls are retained rather than tuned away. The next active research layer moves into event-level market microstructure rather than extending bar-based strategy search.
 
 > Current evidence is retrospective and based on reused history. It is not expected-profit evidence, strategy approval, or trading permission.
 
@@ -115,16 +121,20 @@ Python · pandas · NumPy · scikit-learn · statsmodels · ARCH/GARCH-family mo
 **Research infrastructure**  
 SQL / SQLite · Git · GitHub Actions · Linux · AWS Lightsail · reproducible CLI workflows · immutable manifests · SHA-256 provenance
 
+**Systems direction — current build**  
+C++ · event-driven market data · order-book reconstruction · deterministic replay · timestamp / sequence validation · latency measurement · microstructure feature generation
+
 **AI-assisted workflow**  
 Codex · Claude · structured protocol generation · code review · test generation · reproducibility audits
 
 ## Current Interests
 
+- Market microstructure and high-frequency research
+- Passive execution, fill probability and adverse selection
+- Order flow, liquidity and short-horizon markouts
 - Probabilistic forecasting and distributional prediction
 - Systematic / quantitative trading research
-- Market microstructure and volatility
 - Decision-making under uncertainty
-- Cost-aware utility and portfolio allocation
 - Multi-asset systematic research
 
 ## Portfolio
