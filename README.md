@@ -1,149 +1,73 @@
-# Woosub Shin
+# meanydeany
 
-**Probabilistic Market Research · Market Microstructure · Systematic Trading**
+**Systematic Trading Research | Financial Econometrics | Market Microstructure**
 
-I build quantitative research systems that turn market hypotheses into reproducible evidence.
+I build research systems for Bitcoin trading, from market-data ingestion and interpretable signals to execution-aware backtests and reproducible experiments.
 
-My current work is moving below repeated bar-level strategy search into **event-level Bitcoin market microstructure and high-frequency research**. The focus is not simply to make forecasts faster, but to study whether observable order-flow and liquidity states change fill probability, post-fill markouts, adverse selection, and ultimately cost-adjusted passive-execution payoff.
+My current focus is **BTC**: studying what price, volume and observed trading behavior can tell us, then testing whether that information translates into value after fees, slippage and execution delays. My background is in financial econometrics and empirical asset pricing.
 
-Prior probabilistic, volatility, and bar-based studies remain retained as frozen evidence rather than being rewritten around the new direction.
+[Portfolio and papers](https://meanydeany.com) | [Email](mailto:woosub815@gmail.com)
 
-## Current Research Direction
+## What I am working on
 
-```text
-5m / 1m market context and retained evidence
-    ↓
-Event-level trades, quotes and order-book updates
-    ↓
-Local order-book reconstruction
-    ↓
-OFI · microprice · spread · depth · trade imbalance
-    ↓
-Fill probability + adverse-selection analysis
-    ↓
-1s / 5s / 10s / 30s / 60s markouts
-    ↓
-Cost-aware passive-execution payoff
-    ↓
-Strategy / execution consideration only after validation
-```
+### BTC price and volume research
 
-The engineering track is moving toward a **C++ event-driven market-data and deterministic replay core**, with Python retained for statistical analysis, experiment design, payoff studies, and validation.
+Interpretable strategies built from completed candles and traded volume. I turn price structure into explicit setup, entry and exit rules, then evaluate the complete trading policy rather than just a directional forecast. Price-only controls, no-trade outcomes and transaction costs are part of the comparison.
 
-The key separation remains deliberate:
+### Market microstructure and C++
 
-```text
-predictive evidence
-        ≠
-economic utility
-        ≠
-strategy approval
-        ≠
-execution authority
-```
+Event-level trades, quotes and order-book updates; local book reconstruction; and deterministic market-data replay. The C++ track supports event-driven data processing, while Python supports statistical analysis, short-horizon price-response studies and validation. Execution research examines fillability and adverse selection separately from signal quality.
 
-## ASRA — Probabilistic Market Research
+### Execution and inventory analysis
 
-ASRA is my private research framework for studying Bitcoin market states, forecast decomposition, distributional prediction, and decision-making under uncertainty.
+Reconstructing observed position changes from historical execution records and aligning them with contemporaneous candles and volume. I distinguish fills from orders, and separate new entries, additions, reductions, closes and reversals. A buy is not necessarily a new long position, and a fill timestamp is not an order-submission timestamp.
 
-The research evolved from asking **“Which strategy works?”** to asking:
+### ASRA and research infrastructure
 
-- **Will the market make a meaningful move?** → `P(MOVE)`
-- **If it moves, which direction is more likely?** → `P(Direction | MOVE)`
-- **How large could the move be?** → conditional magnitude distribution
-- **What does the full signed return distribution look like?** → structured probabilistic forecast
+ASRA is my private framework for probabilistic market research and cost-aware strategy evaluation. The supporting tooling covers source authentication, timestamp alignment, forecast evaluation, chronological testing, independent accounting checks and reproducible reporting.
 
-### Latest frozen evidence
+Personal trading records and experimental strategy results remain separate; neither is used as a substitute for the other.
 
-In the current 1-hour full-return-distribution study:
-
-- **22,573** unique hourly forecast origins were evaluated.
-- The structured return distribution outperformed a training-only unconditional empirical distribution on **CRPS in all 11/11 chronological evaluation folds**.
-- The registered **7-day and 30-day block intervals were both entirely favorable**.
-- Conditional magnitude information added incremental distributional value.
-- The registered **left-tail score also improved** versus the unconditional baseline.
-
-Just as importantly, some hypotheses did **not** survive:
-
-- A separate direction-specific magnitude model did not add robust value over the pooled-magnitude structure.
-- The derived conditional mean did not establish lower MSE than a zero-return forecast.
-
-Those nulls are retained rather than tuned away. The next active research layer moves into event-level market microstructure rather than extending bar-based strategy search.
-
-> Current evidence is retrospective and based on reused history. It is not expected-profit evidence, strategy approval, or trading permission.
-
-## Selected Research
+## Selected academic research
 
 ### Volatility Regime Filtering in Futures Markets
 
-MSc thesis on whether EGARCH-conditioned volatility regimes improve the risk-adjusted performance of an intraday futures framework relative to the same rules without the filter.
+My MSc thesis investigates whether EGARCH-conditioned volatility regimes improve an intraday equity-index futures framework relative to the same rules without the filter.
 
-- Daily EGARCH(1,1) with Student’s t innovations
-- 5-minute equity-index futures research
-- Out-of-sample and walk-forward validation
-- Bootstrap ablation tests
-- Alternative volatility-filter comparisons
-- Explicit transaction-cost and drawdown analysis
+The study combines daily EGARCH(1,1) with Student's t innovations, five-minute market data, out-of-sample and walk-forward evaluation, bootstrap ablations and alternative volatility-filter comparisons.
 
-Selected results from the final research specification included an OOS Sharpe of approximately **1.24** and a long-horizon walk-forward Sharpe around **0.94**.
+Reported historical results include an **OOS Sharpe of approximately 1.24** and a **long-horizon walk-forward Sharpe around 0.94**. These are thesis backtest results, not live trading returns.
 
-- [Project summary](https://meanydeany.com/projects/volatility-regime-filtering)
-- [Thesis PDF](https://meanydeany.com/papers/volatility-regime-filtering-thesis.pdf)
+[Project summary](https://meanydeany.com/projects/volatility-regime-filtering) | [Thesis PDF](https://meanydeany.com/papers/volatility-regime-filtering-thesis.pdf)
 
 ### Bitcoin Bubble Detection with GSADF
 
-Seminar research applying explosive-root testing to Bitcoin price dynamics and bubble episodes.
+Seminar research on explosive-root testing and Bitcoin bubble episodes, including return and volatility comparisons. Statistical bubble detection is treated separately from a tradable signal.
 
-- GSADF explosive-root testing
-- Bubble / non-bubble return and volatility comparison
-- Explicit separation between statistical bubble detection and trading signals
+[Paper PDF](https://meanydeany.com/papers/bitcoin-bubble-gsadf-seminar-paper.pdf)
 
-- [Paper PDF](https://meanydeany.com/papers/bitcoin-bubble-gsadf-seminar-paper.pdf)
+## How I work
 
-## Research Workflow
+I define the question and comparison before measuring a new experiment, preserve source and implementation identities, and keep future information out of historical decisions. Negative and inconclusive results remain part of the research record rather than being rewritten into winners.
 
-I use AI-assisted development tools such as **Codex** and **Claude** to accelerate implementation, testing, and review, while keeping the research question, evaluation criteria, interpretation, and scientific boundaries explicit.
+I evaluate **prediction quality, after-cost economics and executable implementation as separate questions**. A passing test suite establishes software behavior, not an economic edge.
 
-Typical workflow:
+I use **Codex and Claude** for implementation, testing and review, with explicit specifications and independently checked calculations. Hypothesis selection and interpretation remain my responsibility.
 
-1. define the hypothesis and comparison before inspecting outcomes;
-2. freeze data, features, models, horizons, and decision rules;
-3. authenticate source and lineage identities;
-4. run causal / anti-lookahead validation;
-5. preserve successful and failed results;
-6. separate forecast quality from economic and execution claims.
+## Background and tools
 
-## Technical Stack
+**University of Copenhagen:** MSc Economics, with a focus on financial econometrics and empirical asset pricing.  
+**UC San Diego:** undergraduate economics, with a focus on quantitative economics and econometrics.
 
-**Quantitative research**  
-Python · pandas · NumPy · scikit-learn · statsmodels · ARCH/GARCH-family models · bootstrap inference · walk-forward validation · probabilistic forecasting
-
-**Research infrastructure**  
-SQL / SQLite · Git · GitHub Actions · Linux · AWS Lightsail · reproducible CLI workflows · immutable manifests · SHA-256 provenance
-
-**Systems direction — current build**  
-C++ · event-driven market data · order-book reconstruction · deterministic replay · timestamp / sequence validation · latency measurement · microstructure feature generation
-
-**AI-assisted workflow**  
-Codex · Claude · structured protocol generation · code review · test generation · reproducibility audits
-
-## Current Interests
-
-- Market microstructure and high-frequency research
-- Passive execution, fill probability and adverse selection
-- Order flow, liquidity and short-horizon markouts
-- Probabilistic forecasting and distributional prediction
-- Systematic / quantitative trading research
-- Decision-making under uncertainty
-- Multi-asset systematic research
-
-## Portfolio
-
-- [meanydeany.com](https://meanydeany.com)
+| Area | Tools and methods |
+|---|---|
+| Quantitative research | Python, pandas, NumPy, scikit-learn, statsmodels, volatility models, probabilistic forecasting |
+| Statistical evaluation | Chronological validation, walk-forward studies, dependence-aware bootstrap inference, benchmark comparisons |
+| Systems | C++, SQL / SQLite, Git, Linux, AWS Lightsail, event-driven processing, deterministic replay |
+| Research integrity | Local test suites, source manifests, SHA-256 provenance, independent cash-flow checks, reproducible outputs |
 
 ## Contact
 
-- Email: **woosub815@gmail.com**
-- GitHub: **[@MeanyDeany](https://github.com/MeanyDeany)**
+[meanydeany.com](https://meanydeany.com) | [woosub815@gmail.com](mailto:woosub815@gmail.com) | [@MeanyDeany](https://github.com/MeanyDeany)
 
-> Core research and execution repositories are private. Public pages summarize methodology and selected validated results without exposing strategy or execution internals.
+> Core BTC research and execution repositories are private. This profile describes methods and public academic work, not private strategy internals, live strategy performance or trade signals.
