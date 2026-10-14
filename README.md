@@ -32,19 +32,21 @@ Personal trading records and experimental strategy results remain separate; neit
 
 ### Volatility Regime Filtering in Futures Markets
 
-My MSc thesis investigates whether EGARCH-conditioned volatility regimes improve an intraday equity-index futures framework relative to the same rules without the filter.
+My MSc thesis investigates how daily EGARCH volatility information changes trade selection and position sizing in an intraday breakout framework for Nasdaq 100, S&P 500 and WTI crude-oil futures.
 
-The study combines daily EGARCH(1,1) with Student's t innovations, five-minute market data, out-of-sample and walk-forward evaluation, bootstrap ablations and alternative volatility-filter comparisons.
+The study combines conditional-volatility modelling, five-minute market data, ablations, chronological parameter-selection exercises and alternative volatility inputs. The comparisons assess the combined filtering and exposure-control layer; they do not isolate the contribution of EGARCH asymmetry alone.
 
-Reported historical results include an **OOS Sharpe of approximately 1.24** and a **long-horizon walk-forward Sharpe around 0.94**. These are thesis backtest results, not live trading returns.
+The **14 October 2026 editorial portfolio revision** clarifies the retrospective development history, information available at each decision, and execution and accounting assumptions. Historical results remain conditional research evidence: independent out-of-sample performance and several table reconciliations require a reproducible empirical rerun.
 
-[Project summary](https://meanydeany.com/projects/volatility-regime-filtering) | [Thesis PDF](https://meanydeany.com/papers/volatility-regime-filtering-thesis.pdf)
+[Project summary](https://meanydeany.com/projects/volatility-regime-filtering) | [Revised thesis](https://meanydeany.com/papers/volatility-regime-filtering-thesis-revised-2026-10-14.pdf) | [Original submission](https://meanydeany.com/papers/volatility-regime-filtering-thesis.pdf) | [Revision notes](https://meanydeany.com/papers/revision-notes-2026-10-14.html)
 
 ### Bitcoin Bubble Detection with GSADF
 
-Seminar research on explosive-root testing and Bitcoin bubble episodes, including return and volatility comparisons. Statistical bubble detection is treated separately from a tradable signal.
+Seminar research on right-tailed explosive-root tests and the interpretation of Bitcoin price surges. The revision distinguishes the global GSADF statistic from the BSADF sequence used to date episodes, and separates statistical explosiveness from behavioral explanations and trading signals.
 
-[Paper PDF](https://meanydeany.com/papers/bitcoin-bubble-gsadf-seminar-paper.pdf)
+The **14 October 2026 editorial portfolio revision** was reconstructed from the published PDF because the editable original was not recovered. Test specifications, episode dates and regime comparisons remain unverified pending recovery or replication of the empirical workflow.
+
+[Revised paper](https://meanydeany.com/papers/bitcoin-bubble-gsadf-seminar-paper-revised-2026-10-14.pdf) | [Original submission](https://meanydeany.com/papers/bitcoin-bubble-gsadf-seminar-paper.pdf) | [Revision notes](https://meanydeany.com/papers/revision-notes-2026-10-14.html)
 
 ## How I work
 
